@@ -23,7 +23,7 @@ def write_bytes_to_file(filename, content):
         fw.write(content)
 
 
-def symmetric_encode(key, iv, plaintext):
+def symmetric_encode(key: bytes, iv: bytes, plaintext: bytes) -> bytes:
     """Symmetric encryption.
     """
     padder = padding.PKCS7(128).padder()
@@ -36,7 +36,7 @@ def symmetric_encode(key, iv, plaintext):
     return ciphertext
 
 
-def symmetric_decode(key, iv, ciphertext):
+def symmetric_decode(key: bytes, iv: bytes, ciphertext: bytes) -> bytes:
     """Symmetric decryption.
     """
     cipher = Cipher(algorithms.AES(key), modes.CBC(iv))
